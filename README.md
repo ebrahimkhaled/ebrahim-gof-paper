@@ -63,8 +63,8 @@ All real datasets are **public** and loaded from named R packages — none are r
 
 If you use the test or this code, please cite the paper and the package:
 
-> Ebrahim, E. K. (2026). *ebrahim.gof: Directional Goodness-of-Fit Tests for Logistic Regression.*
-> R package version 2.0.0. <https://CRAN.R-project.org/package=ebrahim.gof>
+> Ebrahim, E. K. (2026). *ebrahim.gof: Ebrahim–Farrington Goodness-of-Fit Test for Logistic Regression.*
+> R package version 2.1.0. <https://doi.org/10.32614/CRAN.package.ebrahim.gof>
 
 ## License
 
