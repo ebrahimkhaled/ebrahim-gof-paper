@@ -1,5 +1,7 @@
 # Reproduction materials — Ebrahim–Farrington goodness-of-fit paper
 
+[![DOI](https://zenodo.org/badge/1288779753.svg)](https://doi.org/10.5281/zenodo.21184546)
+
 Simulation code, results, and figure scripts for:
 
 > **Goodness-of-fit testing for logistic regression: when does a directional correction to the
