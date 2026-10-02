@@ -1,0 +1,27 @@
+declaration,claim,text,number,verdict
+Spec,S1a,EF with its finite-sample law holds 5% within 0.015 in every cell with n >= 200,D2 n=200: 0.0315; D4 n=200: 0.0290; D4 n=500: 0.0315,failed
+Spec,S1b,EF and HL with chi-square(G-2) depart from 5% by more than 0.015 in at least one cell,D2 n=100: EF 0.0335 HL 0.0470; D4 n=100: EF 0.0280 HL 0.0635; D4 n=500: EF 0.0340 HL 0.0425,held
+Spec,S2a,sign of mean C equals sign of A in every cell where |A| > 2 Monte Carlo SE of mean C,53 of 54,failed
+Spec,S2b-cloglog,EF >= HL (size-adjusted) against the cloglog link,12 of 12 cells,held
+Spec,S2b-loglog,EF >= HL (size-adjusted) against the loglog link,9 of 12 cells,failed
+Spec,S2b-probit,EF about equal to HL against the probit link (|difference| <= 0.01),8 of 12 cells; largest |difference| 0.051,failed
+Spec,S2b-quad,EF <= HL against the omitted square,1 of 12 cells (A < 0 in all of them),failed
+Spec,S3a,EF (finite-sample law) stays at or below 0.10 up to k = 10 exaggerated records,largest 0.0580,held
+Spec,S3b,Stukel exceeds 0.10 at k = 1,x4: 0.1235; x(-4): 0.3955,held
+Add1,P-loglog,loglog-type truth: EF more powerful than HL (size-adjusted),"EF 0.196, HL 0.002",held
+Add1,P-cloglog,cloglog-type truth: EF less powerful than HL (size-adjusted),"EF 0.160, HL 0.190",held
+Add1,P-corr-a,EF and HL stay at or below 0.10 with k <= 10 corrupted patients,"largest EF 0.0345, HL 0.0925",held
+Add1,P-corr-b,Stukel exceeds 0.10 at k = 1,0.0790,failed
+Add2,a,Stukel and cubic LR exceed 0.10 at k = 1 (x4) in D1,"Stukel 0.132, cubic 0.135",held
+Add2,b,GiViTI exceeds 0.10 by k = 2 (x4) in D1,"k=1 0.105, k=2 0.130",held
+Add2,c,"EF, HL and Pigeon-Heyse at or below 0.10 up to k = 10 (x4), both designs",largest 0.0625,held
+Add2,d,Tsiatis and Xie exceed 0.10 by k = 10 (x4) in D1,"Tsiatis 0.527, Xie 0.593",held
+Add2,e,"among EF, HL, Pigeon-Heyse: EF best where A < 0, HL or Pigeon-Heyse best where A > 0 (cells with |EF - HL| > 0.01)",A < 0: 27 of 27; A > 0: 9 of 11,failed
+Add2,f,sign of mean C equals sign of A in at least 90% of cells with |A| > 0.2,39 of 39,held
+Add2,map,sign of the simulated gain equals the sign of the map's prediction where |prediction| > 0.02,6 of 6 declared cells,held
+Add3,g,"in-range sign errors (D1): EF, HL, Pigeon-Heyse <= 0.10 up to k = 10, and one of Stukel, cubic LR, GiViTI > 0.10 by k = 10","grouped largest 0.048; at k=10 Stukel 0.043, cubic 0.042, GiViTI 0.044",failed
+Add3,h,"response misclassification (D1): EF, HL, Pigeon-Heyse <= 0.10 up to k = 20",largest 0.056,held
+Add3,i,"Stukel-W below Stukel at k = 1, x(-4), D1","Stukel-W 0.067, Stukel 0.365",held
+Add3,j,plasmode with capped tbsa: EF <= 0.10 up to k = 10,largest 0.035,held
+Add3,e',"event rate held fixed: EF best of EF, HL, Pigeon-Heyse in every cell with A < 0 and |EF - HL| > 0.01",18 of 18 (cells where all three have power <= 0.05: 1),held
+Add3,f',sign of the EF - HL difference opposite to the sign of A in at least 90% of cells with |EF - HL| > 0.01,31 of 33,held

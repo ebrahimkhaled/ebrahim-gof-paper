@@ -23,6 +23,10 @@ the studies it covers were run:
 | `STUDY_SPEC_EF_ESJ.md` | Studies 1–3: size, power, corrupted records |
 | `ADDENDUM1_plasmode.md` | the burn-injury plasmode study and its predictions |
 | `ADDENDUM2_rivals_revision.md` | Studies 4–7: the robustness screen of eight tests, power of the survivors, simulated map cells, plasmode with corruption; claims (a)–(f) |
+| `ADDENDUM3_inrange_calibrated.md` | Studies 8–10: in-range errors, misclassified responses and Stukel-W; power with the event rate held fixed; computing time; claims (g)–(j), (e′), (f′). Deposited publicly (release v2.1.0) before any of its replicates ran |
+
+`results/claims_ledger.csv` (built by `code/analyse_claims.R`) gives every declared claim with its outcome, including
+those that failed.
 
 ## Code → paper
 
@@ -33,6 +37,9 @@ the studies it covers were run:
 | `code/run_ef_studies.R`, `analyse_study2.R` | Studies 1–3 (Table 2, the size rule) |
 | `code/run_revision.R`, `analyse_revision.R`, `analyse_study6.R` | Studies 4–7 (Tables 1, 3; Figs 1, 2; claims a–f) |
 | `code/run_plasmode.R` | the plasmode study (Table 4) |
+| `code/run_addendum3.R` | Studies 8 and 9 (Tables 1, 3, 4a; Fig 2; Tables S9–S10) |
+| `code/time_rivals.R` | Study 10, computing time (Table S8) |
+| `code/analyse_claims.R`, `summarise_study9.R` | verdicts on every declared claim (Table S13) and the Study 9 numbers quoted in the text |
 | `code/verify_N1_second_order.R`, `second_order_calibration.R` | second-order theory against simulation (Fig 3) |
 | `code/N2_sign_map.R` | the map of predicted gains (Fig 1) |
 | `code/theorem2_predictions.R`, `check_identity.R`, `check_pigeon_heyse.R` | numerical checks of Theorem 2, Lemma 2, Proposition 1 (Table S7) |

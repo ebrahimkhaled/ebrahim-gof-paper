@@ -1,7 +1,7 @@
 {
   "title": "Reproduction materials: A modified Hosmer-Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness",
   "upload_type": "software",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Code, pre-registration declarations and per-replication simulation results reproducing every table and figure of the paper 'A modified Hosmer-Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness' (Ebrahim and El-Kotory, submitted to Statistical Papers, 2026) and its Online Resource 1. Folder statistical_papers_2026/ holds the 2026 revision; the earlier materials (v1.0.0) are kept at the repository root. The test is implemented in the CRAN package ebrahim.gof.",
   "creators": [
     {
