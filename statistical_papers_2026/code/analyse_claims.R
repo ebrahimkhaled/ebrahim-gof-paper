@@ -156,5 +156,55 @@ if (length(list.files(file.path(RES, "study9"), "gz$")) == 90) {
   claim("Add3", "f'", "sign of the EF - HL difference opposite to the sign of A in at least 90% of cells with |EF - HL| > 0.01",
         sprintf("%d of %d", v9[, sum(sign(gain_adj) == -sign(A))], nrow(v9)), v9[, mean(sign(gain_adj) == -sign(A))] >= .9)
 }
+## ------------------------------------------------------------------ Addendum 4: Studies 11-13
+ptests <- c("p_HL_chisq", "p_EF_chisq", "p_HL_norm", "p_EF_norm", "p_L", "p_LW", "p_comb")
+cols4 <- c(paste0(ptests, "_P"), paste0(ptests, "_25"), "EF10", "HL10", "Stukel", "StukelW")
+summ4 <- function(st) {
+  fs <- list.files(file.path(RES, paste0("study", st)), "gz$")
+  rbindlist(lapply(fs, function(f) {
+    id <- sub(".csv.gz", "", f); x <- fread(file.path(RES, paste0("study", st), f))
+    m <- regmatches(id, regexec("^(D\\d|W)_([a-z]+)_n(\\d+)_t([0-9.]+)_k(\\d+)_m(neg)?(\\d+)$", id))[[1]]
+    null_id <- sprintf("%s_logit_n%s_t0.0_k00_m1", m[2], m[4])
+    x0 <- fread(file.path(RES, paste0("study", st), paste0(null_id, ".csv.gz")))
+    row <- data.table(design = m[2], truth = m[3], n = as.integer(m[4]), tau = as.numeric(m[5]), k = as.integer(m[6]),
+                      mult = (if (m[7] == "neg") -1 else 1) * as.numeric(m[8]), B = nrow(x), G_paul = median(x$G_paul))
+    for (t in cols4) { set(row, j = paste0("raw_", t), value = rej(x[[t]])); set(row, j = paste0("adj_", t), value = adjr(x[[t]], x0[[t]])) }
+    row
+  }))
+}
+if (length(list.files(file.path(RES, "study11"), "gz$")) == 6) {
+  S11 <- summ4(11); fwrite(S11, file.path(RES, "study11_summary.csv"))
+  a <- S11[truth == "shared"]
+  ok <- a[, adj_p_EF_norm_P >= adj_p_HL_norm_P - .01 & adj_p_EF_norm_25 >= adj_p_HL_norm_25 - .01]
+  claim("Add4", "p", "shared-deviation alternatives: EF-N at least HL-N - 0.01 (size-adjusted), both groupings",
+        sprintf("%d of %d cells; EF-N %s vs HL-N %s (Paul's G)", sum(ok), nrow(a),
+                paste(sprintf("%.3f", a$adj_p_EF_norm_P), collapse = "/"), paste(sprintf("%.3f", a$adj_p_HL_norm_P), collapse = "/")), all(ok))
+}
+if (length(list.files(file.path(RES, "study13"), "gz$")) == 5) {
+  S13 <- summ4(13); fwrite(S13, file.path(RES, "study13_summary.csv"))
+  k5 <- S13[k == 5]; k25n <- S13[k == 25 & mult == -4]
+  claim("Add4", "o", "gross errors, Paul's G: EF-N and the combined test <= 0.10 at k = 5; L (not winsorized) > 0.10 at k = 25, x(-4)",
+        sprintf("k=5: EF-N %s, combined %s; L at k=25 x(-4) %.3f", paste(sprintf("%.3f", k5$raw_p_EF_norm_P), collapse = "/"),
+                paste(sprintf("%.3f", k5$raw_p_comb_P), collapse = "/"), k25n$raw_p_L_P),
+        k5[, all(raw_p_EF_norm_P <= .10 & raw_p_comb_P <= .10)] && k25n$raw_p_L_P > .10)
+}
+if (length(list.files(file.path(RES, "study12"), "gz$")) == 48) {
+  S12 <- summ4(12); AA9 <- fread(file.path(RES, "alignment_calibrated.csv"))[, .(design, truth = sub("quad", "quad", truth), A)]
+  S12 <- merge(S12, AA9, by = c("design", "truth"), all.x = TRUE); fwrite(S12, file.path(RES, "study12_summary.csv"))
+  nl <- S12[truth == "logit"]
+  kk <- nl[n >= 10000 & (abs(raw_p_HL_chisq_P - .05) > .015 | abs(raw_p_EF_chisq_P - .05) > .015)]
+  claim("Add4", "k", "Paul's G: HL-chi2 or EF-chi2 size outside 0.05 +- 0.015 in at least one null cell with n >= 10000",
+        if (nrow(kk)) paste(sprintf("%s n=%d: HL %.3f, EF %.3f", kk$design, kk$n, kk$raw_p_HL_chisq_P, kk$raw_p_EF_chisq_P), collapse = "; ")
+        else sprintf("largest departure %.3f", nl[n >= 10000, max(abs(c(raw_p_HL_chisq_P, raw_p_EF_chisq_P) - .05))]), nrow(kk) > 0)
+  ll <- unlist(nl[, .(raw_p_EF_norm_P, raw_p_HL_norm_P, raw_p_LW_P, raw_p_comb_P, raw_p_EF_norm_25, raw_p_HL_norm_25, raw_p_LW_25, raw_p_comb_25)])
+  claim("Add4", "l", "EF-N, HL-N, L-W and combined within 0.05 +- 0.015 in every null cell, both groupings",
+        sprintf("range %.3f to %.3f", min(ll), max(ll)), all(abs(ll - .05) <= .015))
+  al <- S12[truth != "logit"]
+  mm_ <- al[A < 0]
+  claim("Add4", "m", "Paul's G: EF-N more powerful than HL-chi2 (size-adjusted) in every alternative cell with A < 0",
+        sprintf("%d of %d", mm_[, sum(adj_p_EF_norm_P > adj_p_HL_chisq_P)], nrow(mm_)), mm_[, all(adj_p_EF_norm_P > adj_p_HL_chisq_P)])
+  claim("Add4", "n", "Paul's G: combined test more powerful than HL-chi2 (size-adjusted) in at least 80% of alternative cells",
+        sprintf("%d of %d", al[, sum(adj_p_comb_P > adj_p_HL_chisq_P)], nrow(al)), al[, mean(adj_p_comb_P > adj_p_HL_chisq_P)] >= .8)
+}
 LL <- rbindlist(L); fwrite(LL, file.path(RES, "claims_ledger.csv"))
 print(LL[, .(declaration, claim, verdict, number)], right = FALSE)

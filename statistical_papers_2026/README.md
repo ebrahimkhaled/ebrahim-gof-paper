@@ -25,6 +25,8 @@ the studies it covers were run:
 | `ADDENDUM2_rivals_revision.md` | Studies 4–7: the robustness screen of eight tests, power of the survivors, simulated map cells, plasmode with corruption; claims (a)–(f) |
 | `ADDENDUM3_inrange_calibrated.md` | Studies 8–10: in-range errors, misclassified responses and Stukel-W; power with the event rate held fixed; computing time; claims (g)–(j), (e′), (f′). Deposited publicly (release v2.1.0) before any of its replicates ran |
 
+| `ADDENDUM4_large_sample.md` | Studies 11–13: the score-test property, the grouping rule of Paul et al. with normal references, a combined large-sample test; claims (k)–(p). Deposited publicly (release v2.3.0) before any of its replicates ran |
+
 `results/claims_ledger.csv` (built by `code/analyse_claims.R`) gives every declared claim with its outcome, including
 those that failed.
 
@@ -39,6 +41,7 @@ those that failed.
 | `code/run_plasmode.R` | the plasmode study (Table 4) |
 | `code/run_addendum3.R` | Studies 8 and 9 (Tables 1, 3, 4a; Fig 2; Tables S9–S10) |
 | `code/time_rivals.R` | Study 10, computing time (Table S8) |
+| `code/large_sample.R`, `run_addendum4.R`, `check_large_sample.R` | Studies 11–13 (Table 5, Fig 5, Tables S14–S15); the score identity and its orthogonality check |
 | `code/analyse_claims.R`, `summarise_study9.R` | verdicts on every declared claim (Table S13) and the Study 9 numbers quoted in the text |
 | `code/verify_N1_second_order.R`, `second_order_calibration.R` | second-order theory against simulation (Fig 3) |
 | `code/N2_sign_map.R` | the map of predicted gains (Fig 1) |

@@ -115,9 +115,58 @@ for (sc in c("cloglog", "loglog", "quadneg")) {
 }
 dev.off()
 
-## ------------------------------------------------------------------------------------------- Fig. 5 (beetle)
+## ------------------------------------------------------------------------------------------- Fig. 5 (Paul's rule)
+S12 <- fread(file.path(RES, "study12_summary.csv"))
+fig("Fig5.pdf", 131, 62)
+par(mfrow = c(1, 3), mar = c(3.0, 3.1, 1.3, 0.4), cex = 1)
+for (pn in list(c("D1", "cloglog"), c("D2", "loglog"), c("D4", "quad"))) {
+  S <- S12[design == pn[1] & truth == pn[2]][order(n)]
+  plot(NA, xlim = range(S$n), ylim = c(0, 1), log = "x", xaxt = "n", xlab = "Sample size, n", ylab = "Power, size-adjusted")
+  axis(1, S$n, c("2000", "5000", "10000", "20000"))
+  lines(S$n, S$adj_p_EF_norm_P, col = col[["EF"]], lwd = 1.3); points(S$n, S$adj_p_EF_norm_P, col = col[["EF"]], pch = 16)
+  lines(S$n, S$adj_p_HL_chisq_P, col = col[["Stukel"]], lwd = 1.3, lty = 2); points(S$n, S$adj_p_HL_chisq_P, col = col[["Stukel"]], pch = 1)
+  abline(h = 0.05, lty = 3, col = "grey55")
+  mtext(sprintf("(%s)", letters[match(pn[1], c("D1", "D2", "D4"))]), side = 3, line = 0.2, adj = 0)
+  if (pn[1] == "D1") legend("topright", c("EF, normal", "HL, chi-square"), col = col[c("EF", "Stukel")], pch = c(16, 1),
+                            lty = c(1, 2), bty = "n", cex = 0.9)
+}
+dev.off()
+
+## Table 5: size under Paul's rule (paper); Study 12 power and Studies 11, 13 in Online Resource 1
+nl <- S12[truth == "logit"][order(design, n)]
+rows <- nl[, sprintf("%s & %d & %d & %s & %s & %s & %s \\\\", ifelse(n == 2000, design, ""), n, as.integer(G_paul),
+                     f3(raw_p_HL_chisq_P), f3(raw_p_EF_chisq_P), f3(raw_p_HL_norm_P), f3(raw_p_EF_norm_P))]
+rows <- unlist(lapply(split(rows, rep(1:3, each = 4)), function(r) c(r, "\\addlinespace")))
+writeLines(c("\\begin{tabular}{@{}lrrrrrr@{}}", "\\toprule",
+             " & & & \\multicolumn{2}{c}{$\\chi^2_{G-2}$} & \\multicolumn{2}{c}{normal (Theorem 3)} \\\\",
+             "\\cmidrule(lr){4-5}\\cmidrule(l){6-7}", "Design & $n$ & $G$ & HL & EF & HL & EF \\\\", "\\midrule",
+             head(rows, -1), "\\bottomrule", "\\end{tabular}"), file.path(TAB, "tab_large.tex"))
+tl12 <- c(cloglog = "cloglog", loglog = "log-log", quad = "square")
+al <- S12[truth != "logit"][, truth := factor(truth, names(tl12))][order(design, truth, n)]
+rows <- al[, sprintf("%s & %s & %d & %s & %s & %s & %s & %s & %s & %s & %s \\\\", design, tl12[as.character(truth)], n, mm(sprintf("%.2f", A)),
+                     f3(adj_p_EF_norm_P), f3(adj_p_HL_chisq_P), f3(adj_p_HL_norm_P), f3(adj_p_comb_P), f3(adj_p_EF_norm_25),
+                     f3(adj_EF10), f3(adj_StukelW))]
+writeLines(c("\\begin{tabular}{@{}llrrrrrrrrr@{}}", "\\toprule",
+             " & & & & \\multicolumn{4}{c}{Paul's $G$} & 25 per group & $G=10$ & \\\\",
+             "\\cmidrule(lr){5-8}",
+             "Design & Truth & $n$ & $A$ & EF-N & HL-$\\chi^2$ & HL-N & combined & EF-N & EF & Stukel-W \\\\", "\\midrule",
+             rows, "\\bottomrule", "\\end{tabular}"), file.path(ROOT, "sp", "esm", "tables", "tab_S14.tex"))
+S11 <- fread(file.path(RES, "study11_summary.csv"))[truth == "shared"][order(design, tau)]
+S13 <- fread(file.path(RES, "study13_summary.csv"))[order(k, -mult)]
+rowsA <- S11[, sprintf("%s & %.1f & %s & %s & %s & %s & %s & %s & %s \\\\", ifelse(design == "W", "wide", design), tau, f3(adj_p_EF_norm_P),
+                       f3(adj_p_HL_norm_P), f3(adj_p_EF_norm_25), f3(adj_EF10), f3(adj_HL10), f3(adj_Stukel), f3(adj_StukelW))]
+rowsB <- S13[, sprintf("%s & %d & %s & %s & %s & %s & %s & %s & %s \\\\", ifelse(k == 0, "none", ifelse(mult > 0, "$\\times4$", "$\\times(-4)$")), k,
+                       f3(raw_p_EF_norm_P), f3(raw_p_HL_norm_P), f3(raw_p_L_P), f3(raw_p_comb_P), f3(raw_EF10), f3(raw_Stukel), f3(raw_StukelW))]
+writeLines(c("\\begin{tabular}{@{}lrrrrrrrr@{}}", "\\toprule",
+             "\\multicolumn{9}{@{}l}{(a) Shared deviations within risk bins, $n=4000$: size-adjusted power} \\\\",
+             "Design & $\\tau$ & EF-N & HL-N & EF-N, 25 & EF, $G=10$ & HL, $G=10$ & Stukel & Stukel-W \\\\", "\\midrule", rowsA, "\\midrule",
+             "\\multicolumn{9}{@{}l}{(b) Gross errors, design D1, $n=5000$, Paul's $G$: raw rate at 5\\%} \\\\",
+             "Error & $k$ & EF-N & HL-N & $L$ & combined & EF, $G=10$ & Stukel & Stukel-W \\\\", "\\midrule", rowsB,
+             "\\bottomrule", "\\end{tabular}"), file.path(ROOT, "sp", "esm", "tables", "tab_S15.tex"))
+
+## ------------------------------------------------------------------------------------------- Fig. 6 (beetle)
 B <- readRDS(file.path(RES, "beetle.rds"))
-fig("Fig5.pdf", 84, 70)
+fig("Fig6.pdf", 84, 70)
 par(mar = c(4.6, 3.1, 0.5, 0.5))
 bp <- barplot(rbind(B$z$r, B$z$b * B$z$r), beside = TRUE, col = c("grey78", col[["EF"]]), border = NA,
               names.arg = rep("", 8), ylim = c(-2, 2.2), xlab = "", ylab = "Contribution")
@@ -219,7 +268,7 @@ writeLines(c("\\begin{tabular}{@{}lrrrrrrrrr@{}}", "\\toprule",
 
 ## the claims ledger, Online Resource 1
 LG <- fread(file.path(RES, "claims_ledger.csv"))
-dn <- c(Spec = "Specification", Add1 = "Addendum 1", Add2 = "Addendum 2", Add3 = "Addendum 3")
+dn <- c(Spec = "Specification", Add1 = "Addendum 1", Add2 = "Addendum 2", Add3 = "Addendum 3", Add4 = "Addendum 4")
 esc <- function(s) gsub("%", "\\\\%", gsub("_", "\\\\_", s))
 rows <- LG[, sprintf("%s & %s & %s & %s \\\\", ifelse(c(TRUE, declaration[-1] != declaration[-.N]), dn[declaration], ""),
                      esc(text), esc(number), ifelse(verdict == "held", "held", "\\textbf{failed}"))]

@@ -25,3 +25,9 @@ Add3,i,"Stukel-W below Stukel at k = 1, x(-4), D1","Stukel-W 0.067, Stukel 0.365
 Add3,j,plasmode with capped tbsa: EF <= 0.10 up to k = 10,largest 0.035,held
 Add3,e',"event rate held fixed: EF best of EF, HL, Pigeon-Heyse in every cell with A < 0 and |EF - HL| > 0.01",18 of 18 (cells where all three have power <= 0.05: 1),held
 Add3,f',sign of the EF - HL difference opposite to the sign of A in at least 90% of cells with |EF - HL| > 0.01,31 of 33,held
+Add4,p,"shared-deviation alternatives: EF-N at least HL-N - 0.01 (size-adjusted), both groupings",4 of 4 cells; EF-N 0.422/0.989/0.276/0.922 vs HL-N 0.413/0.988/0.259/0.912 (Paul's G),held
+Add4,o,"gross errors, Paul's G: EF-N and the combined test <= 0.10 at k = 5; L (not winsorized) > 0.10 at k = 25, x(-4)","k=5: EF-N 0.059/0.070, combined 0.074/0.246; L at k=25 x(-4) 0.341",failed
+Add4,k,Paul's G: HL-chi2 or EF-chi2 size outside 0.05 +- 0.015 in at least one null cell with n >= 10000,"D4 n=10000: HL 0.079, EF 0.051; D4 n=20000: HL 0.117, EF 0.034",held
+Add4,l,"EF-N, HL-N, L-W and combined within 0.05 +- 0.015 in every null cell, both groupings",range 0.040 to 0.072,failed
+Add4,m,Paul's G: EF-N more powerful than HL-chi2 (size-adjusted) in every alternative cell with A < 0,16 of 16,held
+Add4,n,Paul's G: combined test more powerful than HL-chi2 (size-adjusted) in at least 80% of alternative cells,22 of 36,failed
