@@ -1,0 +1,242 @@
+chunks to run: 480 
+[[1]]
+[[1]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[1]]$visible
+[1] FALSE
+
+
+[[2]]
+[[2]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[2]]$visible
+[1] FALSE
+
+
+[[3]]
+[[3]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[3]]$visible
+[1] FALSE
+
+
+[[4]]
+[[4]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[4]]$visible
+[1] FALSE
+
+
+[[5]]
+[[5]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[5]]$visible
+[1] FALSE
+
+
+[[6]]
+[[6]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[6]]$visible
+[1] FALSE
+
+
+[[7]]
+[[7]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[7]]$visible
+[1] FALSE
+
+
+[[8]]
+[[8]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[8]]$visible
+[1] FALSE
+
+
+[[9]]
+[[9]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[9]]$visible
+[1] FALSE
+
+
+[[10]]
+[[10]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[10]]$visible
+[1] FALSE
+
+
+[[11]]
+[[11]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[11]]$visible
+[1] FALSE
+
+
+[[12]]
+[[12]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[12]]$visible
+[1] FALSE
+
+
+[[13]]
+[[13]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[13]]$visible
+[1] FALSE
+
+
+[[14]]
+[[14]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[14]]$visible
+[1] FALSE
+
+
+[[15]]
+[[15]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[15]]$visible
+[1] FALSE
+
+
+[[16]]
+[[16]]$value
+function (X, scen, gam = 0.12) 
+{
+    eta <- 0.6 * X[, 2] + 0.5 * X[, 3]
+    switch(scen, null = plogis(eta), cloglog = 1 - exp(-exp(eta)), 
+        loglog = exp(-exp(-eta)), quadpos = plogis(eta + gam * 
+            (X[, 2]^2 - 3)), quadneg = plogis(eta - gam * (X[, 
+            2]^2 - 3)))
+}
+
+[[16]]$visible
+[1] FALSE
+
+
+finished 480 chunks in 6.270807 mins 

@@ -2,6 +2,20 @@
 
 [![DOI](https://zenodo.org/badge/1288779753.svg)](https://doi.org/10.5281/zenodo.21184546)
 
+## 2026 revision (v2.0.0) — *Statistical Papers*
+
+The folder **[`statistical_papers_2026/`](statistical_papers_2026/)** reproduces the revised paper
+
+> **A modified Hosmer–Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness**
+> Ebrahim Khaled Ebrahim and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026),
+
+with its pre-registration declarations, every per-replication result and the scripts for every table and figure.
+See its own README. The material below belongs to the earlier version (v1.0.0) and is kept unchanged.
+
+---
+
+## Earlier version (v1.0.0)
+
 Simulation code, results, and figure scripts for:
 
 > **Goodness-of-fit testing for logistic regression: when does a directional correction to the

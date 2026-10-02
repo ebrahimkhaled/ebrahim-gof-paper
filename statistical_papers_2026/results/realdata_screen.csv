@@ -1,0 +1,8 @@
+"data","n","events","AIC_logit_minus_cloglog","HL","C","EF","p_HL","p_EF","p_EF_limit_sumlam","p_Stukel","source"
+"beetle",481,291,7.78,48.56,1.48,47.08,7.72e-08,1.48e-07,7.93,0.021,"Bliss (1935) flour-beetle mortality, VGAM::fbeetle"
+"budworm",240,111,-0.07,5.74,1.88,3.85,0.676,0.87,7.66,0.197,"Collett (2003) tobacco budworm, doBy::budworm"
+"icu",200,40,0.57,4.65,-0.99,5.64,0.794,0.687,7.15,0.925,"Hosmer et al. (2013) ICU, aplore3::icu"
+"glow500",500,125,-2.16,8.99,-0.24,9.23,0.343,0.323,7.8,0.0736,"Hosmer et al. (2013) GLOW, aplore3::glow500"
+"burn1000",1000,150,-24.39,4.77,-5.21,9.98,0.782,0.266,7.89,0.0192,"Hosmer et al. (2013) burn injury, aplore3::burn1000"
+"lowbwt",189,59,0.17,2.43,-0.43,2.86,0.965,0.943,7.46,0.581,"Hosmer et al. (2013) low birth weight, aplore3::lowbwt"
+"pima",532,177,-15.55,4.59,-1.15,5.74,0.8,0.676,7.86,0.0151,"Pima diabetes, MASS::Pima.tr + Pima.te"

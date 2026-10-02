@@ -1,0 +1,2 @@
+# the declarations are fixed by their SHA-256 hashes: keep their bytes exactly as written
+statistical_papers_2026/declarations/** -text

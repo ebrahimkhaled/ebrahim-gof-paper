@@ -1,0 +1,16 @@
+{
+  "title": "Reproduction materials: A modified Hosmer-Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "description": "Code, pre-registration declarations and per-replication simulation results reproducing every table and figure of the paper 'A modified Hosmer-Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness' (Ebrahim and El-Kotory, submitted to Statistical Papers, 2026) and its Online Resource 1. Folder statistical_papers_2026/ holds the 2026 revision; the earlier materials (v1.0.0) are kept at the repository root. The test is implemented in the CRAN package ebrahim.gof.",
+  "creators": [
+    {"name": "Ebrahim, Ebrahim Khaled", "affiliation": "Department of Applied Statistics, Faculty of Business, Alexandria University", "orcid": "0009-0006-7839-8778"},
+    {"name": "El-Kotory, Ahmed", "affiliation": "Department of Applied Statistics, Faculty of Business, Alexandria University", "orcid": "0009-0000-1485-0768"}
+  ],
+  "keywords": ["goodness of fit", "Hosmer-Lemeshow test", "Farrington correction", "logistic regression", "asymmetric link", "robustness"],
+  "license": "MIT",
+  "related_identifiers": [
+    {"identifier": "10.32614/CRAN.package.ebrahim.gof", "relation": "isSupplementTo", "resource_type": "software"},
+    {"identifier": "10.48550/arXiv.2607.15454", "relation": "isSupplementTo", "resource_type": "publication-preprint"}
+  ]
+}
