@@ -295,6 +295,25 @@ writeLines(c("\\begin{tabular}{@{}lrrrrrrr@{}}", "\\toprule",
              "Truth & $k$ & \\multicolumn{2}{c}{size-adjusted} & \\multicolumn{2}{c}{raw} & Run & \\\\",
              " & & EF & HL & EF & HL & & \\\\", "\\midrule", rowsA, "\\bottomrule", "\\end{tabular}"),
            file.path(TAB, "tab_plasmode.tex"))
+## SUPPORT (Addendum 5) and its exploratory sequel, Online Resource 1
+SA <- fread(file.path(RES, "support_application.csv")); SX <- fread(file.path(RES, "support_explore.csv"))
+fp <- function(x) sapply(x, function(v) if (is.na(v)) "---" else if (v < 0.001) { e <- floor(log10(v)); sprintf("$%.1f\\times10^{%d}$", v / 10^e, e) } else sprintf("%.3f", v))
+rowsA <- SA[, sprintf("%s & %d & %.1f & %.3f & %s & %s & %s & %s & %s & %s & %s \\\\", model, G, m, R, fp(p_HL_chisq), fp(p_HL_norm),
+                      fp(p_EF_chisq), fp(p_EF_norm), fp(p_HL10), fp(p_Stukel), fp(p_StukelW))]
+rowsB <- SX[, sprintf("%d & %.1f & %s & %s & %s & %s & %s & %.2f \\\\", G, m, fp(p_HL_chisq), fp(p_HL_norm), fp(p_EF_chisq), fp(p_EF_norm),
+                      mm(sprintf("%.3f", A)), Delta)]
+b0 <- SA[model == "M0"]
+writeLines(c("\\begin{tabular}{@{}lrrrrrrrrrr@{}}", "\\toprule",
+             "\\multicolumn{11}{@{}l}{(a) Declared analysis: $p$-values with Paul's $G$ ($\\chi^2_{G-2}$ and normal references), ten groups, Stukel, Stukel-W} \\\\",
+             "Model & $G$ & $m$ & $R_n$ & HL, $\\chi^2$ & HL, N & EF, $\\chi^2$ & EF, N & HL, $G=10$ & Stukel & Stukel-W \\\\", "\\midrule", rowsA,
+             sprintf("\\multicolumn{11}{@{}l}{Parametric bootstrap of M0 (999 data sets): size at 5\\%% of HL, $\\chi^2$ %.3f, normal %.3f; EF, $\\chi^2$ %.3f, normal %.3f; bootstrap $p$: HL %.3f, EF %.3f} \\\\",
+                     b0$boot_size_HL_chisq, b0$boot_size_HL_norm, b0$boot_size_EF_chisq, b0$boot_size_EF_norm, b0$p_HL_boot, b0$p_EF_boot),
+             "\\bottomrule", "\\end{tabular}", "", "\\medskip", "",
+             "\\begin{tabular}{@{}rrrrrrrr@{}}", "\\toprule",
+             "\\multicolumn{8}{@{}l}{(b) Exploratory: model M0 against the number of groups; $A$ and $\\Delta_n$ with M1's fitted risks as the truth} \\\\",
+             "$G$ & $m$ & HL, $\\chi^2$ & HL, N & EF, $\\chi^2$ & EF, N & $A$ & $\\Delta_n$ \\\\", "\\midrule", rowsB, "\\bottomrule", "\\end{tabular}"),
+           file.path(ROOT, "sp", "esm", "tables", "tab_S16.tex"))
+
 ## computing time (Study 10), Online Resource 1
 TT <- fread(file.path(RES, "study10_timing.csv"))
 fsec <- function(x) if (x < 0.1) sprintf("%.4f", x) else if (x < 10) sprintf("%.2f", x) else sprintf("%.0f", x)

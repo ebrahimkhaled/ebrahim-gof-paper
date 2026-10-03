@@ -2,7 +2,7 @@
 ## The data file support2.csv is public (Vanderbilt Biostatistics, also Hmisc::getHdata(support2)); set SUPPORT_CSV
 ## to its location. Writes results/support_application.csv and results/support_bootstrap.csv.gz.
 ROOT <- "."
-CSV  <- Sys.getenv("SUPPORT_CSV", "C:/Users/ebrah/.gemini/Projects/PDFs/Paper_Ebrahim_Frangiton/paper_deepgof/medical_example/data/support2.csv")
+CSV  <- Sys.getenv("SUPPORT_CSV", "support2.csv")
 suppressMessages({ library(data.table); library(splines); library(parallel) })
 source(file.path(ROOT, "code", "rivals.R")); source(file.path(ROOT, "code", "large_sample.R"))
 
@@ -38,7 +38,7 @@ A <- rbind(analyse(f0, "M0"), analyse(f1, "M1"))
 fit0 <- glm(f0, binomial, data = d); p0 <- fitted(fit0)
 cl <- makePSOCKcluster(20)
 clusterExport(cl, c("d", "f0", "p0", "ROOT"))
-invisible(clusterEvalQ(cl, { source(file.path(ROOT, "code", "large_sample.R")); NULL }))
+invisible(clusterEvalQ(cl, { library(data.table); library(splines); source(file.path(ROOT, "code", "large_sample.R")); NULL }))
 BT <- rbindlist(parLapply(cl, 1:999, function(b) {
   set.seed(7e7 + b); db <- d; db$y <- rbinom(nrow(d), 1, p0)
   fb <- suppressWarnings(glm(f0, binomial, data = db)); X <- model.matrix(fb); pb <- fitted(fb)

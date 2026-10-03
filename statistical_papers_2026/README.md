@@ -27,6 +27,8 @@ the studies it covers were run:
 
 | `ADDENDUM4_large_sample.md` | Studies 11–13: the score-test property, the grouping rule of Paul et al. with normal references, a combined large-sample test; claims (k)–(p). Deposited publicly (release v2.3.0) before any of its replicates ran |
 
+| `ADDENDUM5_support.md` | The SUPPORT application (declared analysis, no claim made in advance). Deposited publicly (release v2.5.0) before the analysis |
+
 `results/claims_ledger.csv` (built by `code/analyse_claims.R`) gives every declared claim with its outcome, including
 those that failed.
 
@@ -41,6 +43,8 @@ those that failed.
 | `code/run_plasmode.R` | the plasmode study (Table 4) |
 | `code/run_addendum3.R` | Studies 8 and 9 (Tables 1, 3, 4a; Fig 2; Tables S9–S10) |
 | `code/time_rivals.R` | Study 10, computing time (Table S8) |
+| `code/support_application.R`, `support_explore.R` | the SUPPORT application (Section 6.3, Table S16); needs the public file `support2.csv` (set `SUPPORT_CSV`) |
+| `theory/FITTED_GROUPING_PROOF.md` | the theory for groups formed on the fitted risk (Proposition S1 of Online Resource 1) |
 | `code/large_sample.R`, `run_addendum4.R`, `check_large_sample.R` | Studies 11–13 (Table 5, Fig 5, Tables S14–S15); the score identity and its orthogonality check |
 | `code/analyse_claims.R`, `summarise_study9.R` | verdicts on every declared claim (Table S13) and the Study 9 numbers quoted in the text |
 | `code/verify_N1_second_order.R`, `second_order_calibration.R` | second-order theory against simulation (Fig 3) |
