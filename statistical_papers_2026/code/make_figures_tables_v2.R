@@ -118,11 +118,11 @@ dev.off()
 ## ------------------------------------------------------------------------------------------- Fig. 5 (Paul's rule)
 S12 <- fread(file.path(RES, "study12_summary.csv"))
 fig("Fig5.pdf", 131, 62)
-par(mfrow = c(1, 3), mar = c(3.0, 3.1, 1.3, 0.4), cex = 1)
+par(mfrow = c(1, 3), mar = c(3.0, 3.1, 1.3, 0.9), cex = 1)
 for (pn in list(c("D1", "cloglog"), c("D2", "loglog"), c("D4", "quad"))) {
   S <- S12[design == pn[1] & truth == pn[2]][order(n)]
   plot(NA, xlim = range(S$n), ylim = c(0, 1), log = "x", xaxt = "n", xlab = "Sample size, n", ylab = "Power, size-adjusted")
-  axis(1, S$n, c("2000", "5000", "10000", "20000"))
+  axis(1, S$n, c("2k", "5k", "10k", "20k"))
   lines(S$n, S$adj_p_EF_norm_P, col = col[["EF"]], lwd = 1.3); points(S$n, S$adj_p_EF_norm_P, col = col[["EF"]], pch = 16)
   lines(S$n, S$adj_p_HL_chisq_P, col = col[["Stukel"]], lwd = 1.3, lty = 2); points(S$n, S$adj_p_HL_chisq_P, col = col[["Stukel"]], pch = 1)
   abline(h = 0.05, lty = 3, col = "grey55")
