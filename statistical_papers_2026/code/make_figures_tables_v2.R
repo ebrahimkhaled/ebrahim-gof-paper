@@ -218,7 +218,7 @@ rows <- T1[, sprintf("%s & %d & %.2f & %s & %s \\\\", ifelse(n == 100, dl[design
                      ifelse(size_EF < 0.0354 | size_EF > 0.0646, paste0("\\textbf{", f3(size_EF), "}"), f3(size_EF)))]
 rows <- unlist(lapply(split(rows, rep(1:5, each = 5)), function(r) c(r, "\\addlinespace")))
 writeLines(c("\\begin{tabular}{@{}lrrrr@{}}", "\\toprule", "Design & $n$ & $e_{\\min}$ & HL & EF \\\\", "\\midrule",
-             head(rows, -1), "\\bottomrule", "\\end{tabular}"), file.path(TAB, "tab_size.tex"))
+             head(rows, -1), "\\bottomrule", "\\end{tabular}"), file.path(ROOT, "sp", "esm", "tables", "tab_S17.tex"))
 
 ## ------------------------------------------------------------------------------------------- Table 3 (stage 2)
 ## Study 9 (event rate held fixed) at n = 1000 in the paper; all n in Online Resource 1; Study 5 (event rate free) there too
@@ -294,7 +294,7 @@ writeLines(c("\\begin{tabular}{@{}lrrrrrrr@{}}", "\\toprule",
              "\\multicolumn{8}{@{}l}{(b) Asymmetric truths, $k$ patients with tbsa multiplied by 4: power of EF and HL} \\\\",
              "Truth & $k$ & \\multicolumn{2}{c}{size-adjusted} & \\multicolumn{2}{c}{raw} & Run & \\\\",
              " & & EF & HL & EF & HL & & \\\\", "\\midrule", rowsA, "\\bottomrule", "\\end{tabular}"),
-           file.path(TAB, "tab_plasmode.tex"))
+           file.path(ROOT, "sp", "esm", "tables", "tab_S18.tex"))
 ## SUPPORT (Addendum 5) and its exploratory sequel, Online Resource 1
 SA <- fread(file.path(RES, "support_application.csv")); SX <- fread(file.path(RES, "support_explore.csv"))
 fp <- function(x) sapply(x, function(v) if (is.na(v)) "---" else if (v < 0.001) { e <- floor(log10(v)); sprintf("$%.1f\\times10^{%d}$", v / 10^e, e) } else sprintf("%.3f", v))
