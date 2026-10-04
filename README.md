@@ -7,7 +7,7 @@
 The folder **[`statistical_papers_2026/`](statistical_papers_2026/)** reproduces the revised paper
 
 > **A modified Hosmer–Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness**
-> Ebrahim Khaled Ebrahim and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026),
+> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026),
 
 with its pre-registration declarations, every per-replication result and the scripts for every table and figure.
 See its own README. The material below belongs to the earlier version (v1.0.0) and is kept unchanged.

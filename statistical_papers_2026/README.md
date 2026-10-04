@@ -1,7 +1,7 @@
 # Reproduction materials, 2026 revision (Statistical Papers)
 
 > **A modified Hosmer–Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness**
-> Ebrahim Khaled Ebrahim and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026).
+> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026).
 
 This folder reproduces every table, figure and number of the revised paper and its Online Resource 1.
 Run all scripts **from this folder** (`statistical_papers_2026/`); paths are relative to it.
