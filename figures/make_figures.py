@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Publication-quality figures for the EF paper (Statistics in Medicine style).
+"""Publication-quality figures for the EF paper (journal style).
 Honest + compelling: shows EF tracks HL almost everywhere, with a visible edge only
 for asymmetric-link misfit. Colourblind-safe (Okabe-Ito). Saves PDF + PNG."""
 import os, csv, numpy as np, matplotlib

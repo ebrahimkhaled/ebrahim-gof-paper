@@ -1,4 +1,4 @@
-## make_figures_tables.R -- every figure and table of the Statistical Papers manuscript, from the result files.
+## make_figures_tables.R -- every figure and table of the first 2026 manuscript, from the result files.
 ## Figures: base R, Arial, 8-12 pt at final size, no titles inside the artwork, vector PDF named Fig1..Fig4.
 ## Tables: LaTeX fragments written into sp/tables/.
 ROOT <- "."

@@ -1,4 +1,4 @@
-## make_figures_tables_v2.R -- figures and tables of the revised Statistical Papers manuscript, from the result files.
+## make_figures_tables_v2.R -- figures and tables of the 2026 manuscript, from the result files.
 ## Figures: cairo PDF, Arial, 8-10 pt at final size (text width 131 mm), no titles inside the artwork.
 ## Fig1 map of the second-order gain with the simulated cells marked; Fig2 robustness screen (stage 1);
 ## Fig3 second-order prediction against simulation; Fig4 many small groups (power against m); Fig5 beetle read-out.
@@ -35,16 +35,12 @@ for (sd_ in c("cloglog", "loglog")) for (sp_ in c(0.5, 1, 2)) {
   image(seq_along(mus), seq_along(lams), t(Z), col = pal, zlim = zlim, axes = FALSE, xlab = "", ylab = "")
   axis(1, seq_along(mus), mus); axis(2, seq_along(lams), c(head(lams, -1), "1"))
   for (i in seq_along(mus)) for (j in seq_along(lams))
-    text(i, j + 0.12, sub("^([+-]?)0\\.", "\\1.", f2(Z[j, i])), cex = 0.9, col = if (abs(Z[j, i]) > 0.2) "white" else "black")
-  ## simulated cells: outlined, simulated gain printed under the prediction (size-adjusted; at alpha = 1, where
-  ## the size-adjusted gain is zero by construction, the raw difference)
+    text(i, j, sub("^([+-]?)0\\.", "\\1.", f2(Z[j, i])), cex = 0.9, col = if (abs(Z[j, i]) > 0.2) "white" else "black")
+  ## simulated cells: outlined only; their simulated gains are in Table S12 of Online Resource 1
   for (r in seq_len(nrow(S6))) {
     x <- S6[r]; if (x$side != sd_ || x$s != sp_) next
     i <- match(x$mu, mus); j <- match(x$lam, lams); if (is.na(i) || is.na(j)) next
-    rect(i - 0.5, j - 0.5, i + 0.5, j + 0.5, border = "black", lwd = 1.4)
-    sim <- if (x$lam == 1 || is.na(x$sim_adj)) x$sim_raw else x$sim_adj
-    text(i, j - 0.27, sprintf("(%s)", sub("^([+-]?)0\\.", "\\1.", f2(sim))), cex = 0.9,
-         col = if (abs(Z[j, i]) > 0.2) "white" else "black")
+    rect(i - 0.5, j - 0.5, i + 0.5, j + 0.5, border = "grey45", lwd = 1.3)
   }
   box()
   mtext(sprintf("(%s)", letters[(sd_ == "loglog") * 3 + match(sp_, c(0.5, 1, 2))]), side = 3, line = 0.2, adj = 0)

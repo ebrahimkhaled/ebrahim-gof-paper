@@ -1,10 +1,10 @@
-# Reproduction materials, 2026 revision (Statistical Papers)
+# Reproduction materials, 2026 paper
 
-> **A modified Hosmer–Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness**
-> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026).
+> **Goodness of fit for logistic regression with many groups: a score-test correction of the Hosmer–Lemeshow test**
+> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (2026, manuscript).
 
-This folder reproduces every table, figure and number of the revised paper and its Online Resource 1.
-Run all scripts **from this folder** (`statistical_papers_2026/`); paths are relative to it.
+This folder reproduces every table, figure and number of the paper and its Online Resource 1.
+Run all scripts **from this folder** (`paper_2026/`); paths are relative to it.
 The test itself is in the CRAN package [`ebrahim.gof`](https://CRAN.R-project.org/package=ebrahim.gof) (`ef.gof()`).
 
 ## Requirements
@@ -64,3 +64,9 @@ summaries the tables are built from, so the tables can be rebuilt without rerunn
 
 An AI assistant was used to write and run parts of the simulation and analysis code under the authors' direction;
 the authors checked the results and are responsible for them.
+
+## Scripts added for the 2026-10 version
+
+- `code/probit_alignment.R`: the alignment A of a probit truth misfitted by the logit (A = -0.11, -1.55, -3.29 at s = 1, 2, 3).
+- `code/check_prop1.R`: numerical check of the one-record influence bound; the largest change over 3000 adversarial data sets is 0.615 on the scale G(1+max|r_g|)^2 Vmin^-1/2, about 6% of the stated bound (constant 11).
+- `code/make_figures_tables_v2.R`: Fig. 1 marks the simulated map cells with grey outlines; their simulated gains are in Table S12.

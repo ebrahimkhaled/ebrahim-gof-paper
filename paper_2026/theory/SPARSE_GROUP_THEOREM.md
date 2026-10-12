@@ -1,6 +1,6 @@
 # The grouped Farrington statistic with many small groups (G_n → ∞)
 
-*Theory note for the Statistical Papers revision. Written 2026-10-02. Manuscript files in `EF_ESJ/sp/` were not touched.*
+*Theory note for the 2026 revision. Written 2026-10-02. Manuscript files in `EF_ESJ/sp/` were not touched.*
 *Code and raw output: `EF_ESJ/theory/sparse_sim/` (every replicate is on disk; see §6).*
 
 ---

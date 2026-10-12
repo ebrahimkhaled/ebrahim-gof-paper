@@ -2,12 +2,12 @@
 
 [![DOI](https://zenodo.org/badge/1288779753.svg)](https://doi.org/10.5281/zenodo.21184546)
 
-## 2026 revision (v2.0.0) — *Statistical Papers*
+## 2026 paper (v2.0.0 and later)
 
-The folder **[`statistical_papers_2026/`](statistical_papers_2026/)** reproduces the revised paper
+The folder **[`paper_2026/`](paper_2026/)** reproduces the paper
 
-> **A modified Hosmer–Lemeshow goodness-of-fit test for asymmetric links: second-order power and robustness**
-> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (submitted to *Statistical Papers*, 2026),
+> **Goodness of fit for logistic regression with many groups: a score-test correction of the Hosmer–Lemeshow test**
+> Ebrahim Khaled Ebrahim, Ibrahim Galal Khattab and Ahmed El-Kotory (2026, manuscript),
 
 with its pre-registration declarations, every per-replication result and the scripts for every table and figure.
 See its own README. The material below belongs to the earlier version (v1.0.0) and is kept unchanged.
@@ -20,7 +20,7 @@ Simulation code, results, and figure scripts for:
 
 > **Goodness-of-fit testing for logistic regression: when does a directional correction to the
 > Hosmer–Lemeshow test help?**
-> Ebrahim Khaled Ebrahim and Ahmed El-Kotory (submitted to *Statistics in Medicine*, 2026).
+> Ebrahim Khaled Ebrahim and Ahmed El-Kotory (2026, earlier manuscript).
 
 The paper studies the **Ebrahim–Farrington (EF)** test — the Hosmer–Lemeshow statistic modified by a
 single directional correction term (the grouped Osius–Rojek/Farrington standardization) — and shows,

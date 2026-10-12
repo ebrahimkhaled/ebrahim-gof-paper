@@ -1,6 +1,6 @@
 # Grouping on the fitted risk: what can be proved, and what cannot (yet)
 
-*Theory note for the Statistical Papers revision, 2026-10-03. Companion to `SPARSE_GROUP_THEOREM.md`. Nothing in `sp/` was modified; the LaTeX fragment that implements the result is `fitted_grouping_esm.tex` in this folder. Numerical checks: `scratch` scripts reproduced in Section 10.*
+*Theory note for the 2026 revision, 2026-10-03. Companion to `SPARSE_GROUP_THEOREM.md`. Nothing in `sp/` was modified; the LaTeX fragment that implements the result is `fitted_grouping_esm.tex` in this folder. Numerical checks: `scratch` scripts reproduced in Section 10.*
 
 ---
 
